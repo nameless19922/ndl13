@@ -3,13 +3,26 @@
     .factory('PokemonsService', function($http) {
 
             return {
-
                 getPokemons: function() {
-                    return $http.get('http://pokeapi.co/api/v2/pokemon/?limit=10');
+                    return $http({
+                        method: 'GET',
+                        headers: {
+                            'application-id': undefined,
+                            'secret-key': undefined
+                        },
+                        url: 'http://pokeapi.co/api/v2/pokemon/?limit=10'
+                    });
                 },
 
                 getPokemon: function(pokemonId) {
-                    return $http.get('http://pokeapi.co/api/v2/pokemon/' + pokemonId);
+                    return $http({
+                        method: 'GET',
+                        headers: {
+                            'application-id': undefined,
+                            'secret-key': undefined
+                        },
+                        url: 'http://pokeapi.co/api/v2/pokemon/' + pokemonId
+                    });
                 },
 
                 createPokemon: function(pokemonData) {
@@ -34,9 +47,6 @@
                         url: 'https://api.backendless.com/v1/data/pokemon/' + pokemonId,
                     });
                 }
-
             }
-
         }
-
     );

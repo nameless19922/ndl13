@@ -10,10 +10,7 @@ angular
             'secret-key': 'F4F7A425-5C7D-AAD4-FF00-56926B7DD800'
         };
 
-        // pokeapi ругается на заголовки "app-id", "secret-id" - устанавливаем для post, put delete
-        $httpProvider.defaults.headers.post   = headers;
-        $httpProvider.defaults.headers.delete = headers;
-        $httpProvider.defaults.headers.put    = headers;
+        $httpProvider.defaults.headers.common = headers;
 
         $routeProvider.
             when('/pokemons', {
